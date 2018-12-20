@@ -1,10 +1,12 @@
+/**
+ * @Author: Ali
+ * @Date:   2018-12-20T15:40:19+01:00
+ * @Last modified by:   Ali
+ * @Last modified time: 2018-12-20T15:40:19+01:00
+ */
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
 }
 
 .App-header {
@@ -20,13 +22,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
