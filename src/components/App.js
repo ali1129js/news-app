@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:33:39+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-20T16:36:07+01:00
+ * @Last modified time: 2018-12-21T06:11:09+01:00
  */
 
 import React, { Component } from 'react';
@@ -11,10 +11,10 @@ import News from './News/News'
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <header className="App-header">
-      <h1 className="App-title"> My Feed</h1>
-      </header>
+      <div className="container-fluid">
+      <nav className="navbar navbar-dark bg-dark">
+      <span className="navbar-brand mb-0 h1">My Feed</span>
+      </nav>
         <News />
       </div>
     );
