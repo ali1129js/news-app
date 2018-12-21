@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:41:20+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-21T05:46:38+01:00
+ * @Last modified time: 2018-12-21T12:01:18+01:00
  */
 import React, { Component } from 'react'
 import NewSingle from './NewSingle'
@@ -36,7 +36,7 @@ class News extends Component {
 
   render(){
     return (
-      <div className="row">
+      <div className="ff">
         {this.renderItem()}
       </div>
     )
