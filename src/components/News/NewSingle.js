@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:43:23+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-22T09:04:47+01:00
+ * @Last modified time: 2018-12-22T09:24:19+01:00
  */
 import React from 'react'
 
@@ -10,7 +10,7 @@ const NewSingle = ({item}) => (
   <div className="row">
     <div className="col-sm">
       <div className="card"
-        style={{marginBottom: "1rem",width: "26rem"}}>
+        style={{marginBottom: "1rem",width: "25rem",marginLeft:"0.8rem"}}>
         <img className="card-img-top"
           src={item.urlToImage}
           alt={item.title} />

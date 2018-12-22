@@ -2,13 +2,13 @@
  * @Author: Ali
  * @Date:   2018-12-21T11:16:27+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-22T08:52:15+01:00
+ * @Last modified time: 2018-12-22T09:40:31+01:00
  */
  /**
   * @Author: Ali
   * @Date:   2018-12-20T15:41:20+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-22T08:52:15+01:00
+ * @Last modified time: 2018-12-22T09:40:31+01:00
   */
  import React, { Component } from 'react'
  import axios from 'axios'
@@ -22,7 +22,7 @@
      }
    }
    componentDidMount() {
-     const url = `https://newsapi.org/v2/top-headlines?sources=bild&apiKey=${API_KEY}`
+     const url = `https://newsapi.org/v2/top-headlines?country=de&apiKey=${API_KEY}`
      axios.get(url)
      .then((res) => {
        this.setState({
@@ -40,6 +40,8 @@
    render(){
      return (
        <div>
+       <h2> Top headlines from Germany</h2>
+       <hr/>
          {this.renderItem()}
        </div>
      )
