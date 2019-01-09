@@ -2,44 +2,43 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:41:20+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-22T09:04:29+01:00
+ * @Last modified time: 2019-01-09T12:50:05+01:00
  */
-import React, { Component } from 'react'
-import NewSingle from './NewSingle'
+import React, { Component } from "react";
+import NewSingle from "./NewSingle";
 
-const API_KEY="063bd9bcd1b847f9a6146f60d88e2808"
+const API_KEY = "063bd9bcd1b847f9a6146f60d88e2808";
 class News extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      news: []
-    }
+      news: [],
+      sourceName: "associated-press"
+    };
   }
   componentDidMount() {
-    const url = `https://newsapi.org/v2/top-headlines?sources=bild&apiKey=${API_KEY}`
+    const url = `https://newsapi.org/v2/top-headlines?sources=${
+      this.state.sourceName
+    }&apiKey=${API_KEY}`;
     fetch(url)
-    .then((res) => {
-      return res.json()
-    })
-    .then((data) => {
-      this.setState({
-        news:data.articles
+      .then(res => {
+        return res.json();
       })
-    })
-    .catch((error) => console.log(error))
+      .then(data => {
+        this.setState({
+          news: data.articles
+        });
+      })
+      .catch(error => console.log(error));
   }
   renderItem() {
-    return this.state.news.map((item) => (
+    return this.state.news.map(item => (
       <NewSingle key={item.title} item={item} />
-    ))
+    ));
   }
 
-  render(){
-    return (
-      <div className="row">
-        {this.renderItem()}
-      </div>
-    )
+  render() {
+    return <div className="row">{this.renderItem()}</div>;
   }
 }
-export default News
+export default News;
