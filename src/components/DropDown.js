@@ -2,15 +2,31 @@
  * @Author: Ali
  * @Date:   2019-01-09T12:03:18+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-09T12:08:26+01:00
+ * @Last modified time: 2019-01-11T10:51:29+01:00
  */
 import React, { Component } from "react";
+// ["associated-press", "spiegel-online", "reddit-r-all"]
 class DropDown extends Component {
-  state = {
-    isOpen: false
-  };
+  constructor() {
+    super();
+    this.state = {
+      changeSource: null,
+      isOpen: false
+    };
+  }
 
   toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
+
+  handleClicked = () => {
+    this.setState(
+      {
+        changeSource: "associated-press"
+      },
+      () => {
+        this.props.changeSource(this.state.changeSource);
+      }
+    );
+  };
   render() {
     const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
     return (
@@ -29,14 +45,14 @@ class DropDown extends Component {
           Change News Source
         </button>
         <div className={menuClass} aria-labelledby="dropdownMenuButton">
+          <button className="dropdown-item" onClick={this.handleClicked}>
+            Associated Press
+          </button>
           <a className="dropdown-item" href="#nogo">
-            Item 1
+            Spiegel-Online
           </a>
           <a className="dropdown-item" href="#nogo">
-            Item 2
-          </a>
-          <a className="dropdown-item" href="#nogo">
-            Item 3
+            Reddit
           </a>
         </div>
       </div>

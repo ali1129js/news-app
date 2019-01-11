@@ -2,16 +2,30 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:33:39+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-09T12:23:22+01:00
+ * @Last modified time: 2019-01-11T11:47:16+01:00
  */
 
 import React, { Component, Fragment } from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import News from "./News/News";
 import SideNews from "./News/SideNews";
 import DropDown from "./DropDown";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      sourceName: "spiegel-online",
+      newSource: null
+    };
+    this.changeSource = this.changeSource.bind(this);
+  }
+  changeSource(source) {
+    console.log(source);
+    this.setState({
+      newSource: source
+    });
+  }
   render() {
     return (
       <Fragment>
@@ -20,11 +34,23 @@ class App extends Component {
             <div className="container-fluid">
               <nav className="navbar sticky-top navbar-dark bg-dark">
                 <span className="navbar-brand mb-0 h1">My Feed</span>
-                <Route path="/" component={DropDown} />
+                <Route
+                  path="/"
+                  render={() => <DropDown changeSource={this.changeSource} />}
+                />
               </nav>
               <div className="row">
                 <div className="col-sm-8">
-                  <Route exact path="/" component={News} />
+                  <Route
+                    exact
+                    path="/"
+                    render={() => (
+                      <News
+                        newSource={this.state.newSource}
+                        sourceName={this.state.sourceName}
+                      />
+                    )}
+                  />
                 </div>
                 <div className="col-sm-4">
                   <Route exact path="/" component={SideNews} />
