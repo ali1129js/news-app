@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-01-09T12:03:18+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-11T10:51:29+01:00
+ * @Last modified time: 2019-01-11T15:07:34+01:00
  */
 import React, { Component } from "react";
 // ["associated-press", "spiegel-online", "reddit-r-all"]
@@ -14,13 +14,17 @@ class DropDown extends Component {
       isOpen: false
     };
   }
+  static defaultProps = {
+    sources: ["associated-press", "die-zeit", "reddit-r-all", "reuters"]
+  };
 
   toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
 
-  handleClicked = () => {
+  handleClose = e => {
+    let value = e.target.value;
     this.setState(
       {
-        changeSource: "associated-press"
+        changeSource: value
       },
       () => {
         this.props.changeSource(this.state.changeSource);
@@ -45,15 +49,48 @@ class DropDown extends Component {
           Change News Source
         </button>
         <div className={menuClass} aria-labelledby="dropdownMenuButton">
-          <button className="dropdown-item" onClick={this.handleClicked}>
-            Associated Press
+          <button
+            value={"google-news"}
+            className="dropdown-item"
+            onClick={this.handleClose}
+          >
+            Google News{" "}
           </button>
-          <a className="dropdown-item" href="#nogo">
-            Spiegel-Online
-          </a>
-          <a className="dropdown-item" href="#nogo">
-            Reddit
-          </a>
+          <button
+            value={"die-zeit"}
+            className="dropdown-item"
+            onClick={this.handleClose}
+          >
+            Die Zeit
+          </button>
+          <button
+            value={"reddit-r-all"}
+            className="dropdown-item"
+            onClick={this.handleClose}
+          >
+            Reddit/all
+          </button>
+          <button
+            value={"reuters"}
+            className="dropdown-item"
+            onClick={this.handleClose}
+          >
+            Reuters
+          </button>
+          <button
+            value={"bild"}
+            className="dropdown-item"
+            onClick={this.handleClose}
+          >
+            Bild
+          </button>
+          <button
+            value={"techcrunch"}
+            className="dropdown-item"
+            onClick={this.handleClose}
+          >
+            TechCrunch
+          </button>
         </div>
       </div>
     );
