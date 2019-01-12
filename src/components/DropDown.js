@@ -2,10 +2,10 @@
  * @Author: Ali
  * @Date:   2019-01-09T12:03:18+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-11T15:07:34+01:00
+ * @Last modified time: 2019-01-12T03:19:38+01:00
  */
 import React, { Component } from "react";
-// ["associated-press", "spiegel-online", "reddit-r-all"]
+
 class DropDown extends Component {
   constructor() {
     super();
@@ -14,9 +14,6 @@ class DropDown extends Component {
       isOpen: false
     };
   }
-  static defaultProps = {
-    sources: ["associated-press", "die-zeit", "reddit-r-all", "reuters"]
-  };
 
   toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
 
@@ -50,18 +47,26 @@ class DropDown extends Component {
         </button>
         <div className={menuClass} aria-labelledby="dropdownMenuButton">
           <button
-            value={"google-news"}
+            value={"spiegel-online"}
             className="dropdown-item"
             onClick={this.handleClose}
           >
-            Google News{" "}
+            Spiegel Online
           </button>
+
           <button
             value={"die-zeit"}
             className="dropdown-item"
             onClick={this.handleClose}
           >
             Die Zeit
+          </button>
+          <button
+            value={"bild"}
+            className="dropdown-item"
+            onClick={this.handleClose}
+          >
+            Bild
           </button>
           <button
             value={"reddit-r-all"}
@@ -77,12 +82,13 @@ class DropDown extends Component {
           >
             Reuters
           </button>
+
           <button
-            value={"bild"}
+            value={"google-news"}
             className="dropdown-item"
             onClick={this.handleClose}
           >
-            Bild
+            Google News{" "}
           </button>
           <button
             value={"techcrunch"}

@@ -2,14 +2,13 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:41:20+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-11T12:26:18+01:00
+ * @Last modified time: 2019-01-12T03:19:44+01:00
  */
 import React, { Component } from "react";
 import NewSingle from "./NewSingle";
 
 const API_KEY = "063bd9bcd1b847f9a6146f60d88e2808";
 class News extends Component {
-  //associated-press , spiegel-online , reuters, reddit-r-all,die-zeit
   constructor(props) {
     super(props);
     this.state = {
@@ -55,7 +54,6 @@ class News extends Component {
   }
 
   render() {
-    console.log(this.props);
     return <div className="row">{this.renderItem()}</div>;
   }
 }

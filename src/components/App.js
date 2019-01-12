@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:33:39+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-11T11:47:16+01:00
+ * @Last modified time: 2019-01-12T03:14:10+01:00
  */
 
 import React, { Component, Fragment } from "react";
@@ -15,13 +15,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      sourceName: "spiegel-online",
+      sourceName: "wired-de",
       newSource: null
     };
     this.changeSource = this.changeSource.bind(this);
   }
   changeSource(source) {
-    console.log(source);
     this.setState({
       newSource: source
     });
@@ -31,32 +30,34 @@ class App extends Component {
       <Fragment>
         <Router>
           <Switch>
-            <div className="container-fluid">
-              <nav className="navbar sticky-top navbar-dark bg-dark">
-                <span className="navbar-brand mb-0 h1">My Feed</span>
-                <Route
-                  path="/"
-                  render={() => <DropDown changeSource={this.changeSource} />}
-                />
-              </nav>
-              <div className="row">
-                <div className="col-sm-8">
+            <Fragment>
+              <div className="container-fluid">
+                <nav className="navbar sticky-top navbar-dark bg-dark">
+                  <span className="navbar-brand mb-0 h1">My Feed</span>
                   <Route
-                    exact
                     path="/"
-                    render={() => (
-                      <News
-                        newSource={this.state.newSource}
-                        sourceName={this.state.sourceName}
-                      />
-                    )}
+                    render={() => <DropDown changeSource={this.changeSource} />}
                   />
-                </div>
-                <div className="col-sm-4">
-                  <Route exact path="/" component={SideNews} />
+                </nav>
+                <div className="row">
+                  <div className="col-sm-8">
+                    <Route
+                      exact
+                      path="/"
+                      render={() => (
+                        <News
+                          newSource={this.state.newSource}
+                          sourceName={this.state.sourceName}
+                        />
+                      )}
+                    />
+                  </div>
+                  <div className="col-sm-4">
+                    <Route exact path="/" component={SideNews} />
+                  </div>
                 </div>
               </div>
-            </div>
+            </Fragment>
           </Switch>
         </Router>
       </Fragment>
