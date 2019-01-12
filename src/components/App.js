@@ -2,11 +2,11 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:33:39+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-12T03:31:42+01:00
+ * @Last modified time: 2019-01-12T03:43:41+01:00
  */
 
 import React, { Component, Fragment } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import News from "./News/News";
 import SideNews from "./News/SideNews";
 import DropDown from "./DropDown";
