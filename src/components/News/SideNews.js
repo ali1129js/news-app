@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-01-12T03:41:32+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-12T03:41:32+01:00
+ * @Last modified time: 2019-01-17T09:10:54+01:00
  */
 
 import React, { Component } from "react";
@@ -16,9 +16,9 @@ class SideNews extends Component {
     };
   }
   componentDidMount() {
-    const url = `https://newsapi.org/v2/top-headlines?country=de&apiKey=${
-      process.env.REACT_APP_API_KEY
-    }`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${
+      this.props.country
+    }&apiKey=${process.env.REACT_APP_API_KEY}`;
     axios
       .get(url)
       .then(res => {
@@ -27,6 +27,23 @@ class SideNews extends Component {
         });
       })
       .catch(error => console.log(error));
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.newCountry !== prevProps.newCountry) {
+      const url = `https://newsapi.org/v2/top-headlines?country=${
+        this.props.newCountry
+      }&apiKey=${process.env.REACT_APP_API_KEY}`;
+      fetch(url)
+        .then(res => {
+          return res.json();
+        })
+        .then(data => {
+          this.setState({
+            sidenews: data.articles
+          });
+        })
+        .catch(error => console.log(error));
+    }
   }
   renderItem() {
     return this.state.sidenews.map(item => (
@@ -37,7 +54,14 @@ class SideNews extends Component {
   render() {
     return (
       <div>
-        <h2> Top headlines from Germany</h2>
+        <h2>
+          {" "}
+          Top headlines{" "}
+          <span style={{ textTransform: "uppercase" }}>
+            {" "}
+            {this.props.newCountry}{" "}
+          </span>
+        </h2>
         <hr />
         {this.renderItem()}
       </div>

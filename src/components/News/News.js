@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:41:20+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-12T03:28:15+01:00
+ * @Last modified time: 2019-01-16T07:56:44+01:00
  */
 import React, { Component } from "react";
 import NewSingle from "./NewSingle";
