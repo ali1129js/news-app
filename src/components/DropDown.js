@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-01-09T12:03:18+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-12T03:19:38+01:00
+ * @Last modified time: 2020-02-26T13:09:28+01:00
  */
 import React, { Component } from "react";
 
@@ -14,9 +14,7 @@ class DropDown extends Component {
       isOpen: false
     };
   }
-
   toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
-
   handleClose = e => {
     let value = e.target.value;
     this.setState(

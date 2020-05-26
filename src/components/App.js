@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:33:39+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-17T08:47:16+01:00
+ * @Last modified time: 2020-05-26T10:59:49+02:00
  */
 
 import React, { Component, Fragment } from "react";
@@ -30,7 +30,6 @@ class App extends Component {
     });
   }
   changeCountry(source) {
-    console.log(source);
     this.setState({
       newCountry: source
     });
