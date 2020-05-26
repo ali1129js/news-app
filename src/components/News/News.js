@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:41:20+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2020-05-26T11:05:37+02:00
+ * @Last modified time: 2020-05-26T11:10:19+02:00
  */
 import React, { Component } from "react";
 import NewSingle from "./NewSingle";
@@ -33,10 +33,11 @@ class News extends Component {
   }
   componentDidUpdate(prevProps) {
     if (this.props.newSource !== prevProps.newSource) {
+      const proxy = "https://cors-anywhere.herokuapp.com/";
       const url = `https://newsapi.org/v2/top-headlines?sources=${
         this.props.newSource
       }&apiKey=${process.env.REACT_APP_API_KEY}`;
-      fetch(url)
+      fetch(proxy + url)
         .then(res => {
           return res.json();
         })

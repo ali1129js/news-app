@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-01-12T03:41:32+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-17T09:10:54+01:00
+ * @Last modified time: 2020-05-26T11:11:05+02:00
  */
 
 import React, { Component } from "react";
@@ -16,11 +16,12 @@ class SideNews extends Component {
     };
   }
   componentDidMount() {
+    const proxy = "https://cors-anywhere.herokuapp.com/";
     const url = `https://newsapi.org/v2/top-headlines?country=${
       this.props.country
     }&apiKey=${process.env.REACT_APP_API_KEY}`;
     axios
-      .get(url)
+      .get(proxy + url)
       .then(res => {
         this.setState({
           sidenews: res.data.articles
@@ -30,10 +31,11 @@ class SideNews extends Component {
   }
   componentDidUpdate(prevProps) {
     if (this.props.newCountry !== prevProps.newCountry) {
+      const proxy = "https://cors-anywhere.herokuapp.com/";
       const url = `https://newsapi.org/v2/top-headlines?country=${
         this.props.newCountry
       }&apiKey=${process.env.REACT_APP_API_KEY}`;
-      fetch(url)
+      fetch(proxy + url)
         .then(res => {
           return res.json();
         })
