@@ -2,15 +2,14 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:33:39+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2020-05-26T10:59:49+02:00
+ * @Last modified time: 2020-05-27T17:47:24+02:00
  */
 
 import React, { Component, Fragment } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import News from "./News/News";
 import SideNews from "./News/SideNews";
-import DropDown from "./DropDown";
-import DropCountry from "./DropCountry";
+import Nav from "./Nav";
 
 class App extends Component {
   constructor() {
@@ -41,19 +40,7 @@ class App extends Component {
           <Switch>
             <Fragment>
               <div className="container-fluid">
-                <nav className="navbar sticky-top navbar-dark bg-dark">
-                  <span className="navbar-brand mb-0 h1">My Feed</span>
-                  <Route
-                    path="/"
-                    render={() => <DropDown changeSource={this.changeSource} />}
-                  />
-                  <Route
-                    path="/"
-                    render={() => (
-                      <DropCountry changeCountry={this.changeCountry} />
-                    )}
-                  />
-                </nav>
+                <Nav changeSource={this.changeSource} />
                 <div className="row">
                   <div className="col-sm-8">
                     <Route
