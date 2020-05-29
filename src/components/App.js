@@ -2,11 +2,11 @@
  * @Author: Ali
  * @Date:   2018-12-20T15:33:39+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2020-05-29T12:49:20+02:00
+ * @Last modified time: 2020-05-29T12:50:43+02:00
  */
 
 import React, { Component, Fragment } from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Switch } from "react-router-dom";
 
 import Grid from "./Grid";
 import Nav from "./Nav";
