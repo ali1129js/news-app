@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-01-12T03:41:32+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2020-05-26T11:11:05+02:00
+ * @Last modified time: 2020-05-30T12:48:32+02:00
  */
 
 import React, { Component } from "react";
@@ -57,11 +57,9 @@ class SideNews extends Component {
     return (
       <div>
         <h2>
-          {" "}
-          Top headlines{" "}
+          Top headlines
           <span style={{ textTransform: "uppercase" }}>
-            {" "}
-            {this.props.newCountry}{" "}
+            {this.props.newCountry}
           </span>
         </h2>
         <hr />
